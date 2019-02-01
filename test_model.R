@@ -36,9 +36,6 @@ test_task <- makeClassifTask(data = data_test, target = "classe")
 train_task <- normalizeFeatures(train_task, method = "standardize" )
 test_task <- normalizeFeatures(test_task, method = "standardize")
 
-im_feat <- generateFilterValuesData(train_task, method = c("information.gain","chi.squared"))
-#plotFilterValues(im_feat,n.show = 20)
-
 # removendo features 
 # train_task <- dropFeatures(task = train_task,features = c("grossura_pele"))
 

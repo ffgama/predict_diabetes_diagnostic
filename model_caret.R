@@ -90,9 +90,5 @@ confusionMatrix(df$response, df$truth, positive = levels(df$truth)[2])
 beep()
 
 
-
-
-
-
-caret::roc.curve(df$truth, df$response, plotit = F)
+roc.curve(df$truth, df$response, plotit = T)
 
