@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1548790382518.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8BE2071",
+    "lastKnownWriteTime" : 1548793402,
+    "last_content_update" : 1548793402638,
+    "path" : "~/GitHub/predict_diabetes_diagnostic/features_selection.R",
+    "project_path" : "features_selection.R",
+    "properties" : {
+        "cursorPosition" : "23,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

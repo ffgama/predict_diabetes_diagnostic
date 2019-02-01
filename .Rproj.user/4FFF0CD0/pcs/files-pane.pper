@@ -1,0 +1,9 @@
+{
+    "path" : "~/GitHub/predict_diabetes_diagnostic",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

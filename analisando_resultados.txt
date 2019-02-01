@@ -1,0 +1,142 @@
+# todas as variáveis
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 105  20
+         1  19  36
+                                          
+               Accuracy : 0.7833          
+                 95% CI : (0.7159, 0.8412)
+    No Information Rate : 0.6889          
+    P-Value [Acc > NIR] : 0.003147        
+                                          
+                  Kappa : 0.492           
+ Mcnemar's Test P-Value : 1.000000        
+                                          
+            Sensitivity : 0.6429          
+            Specificity : 0.8468          
+         Pos Pred Value : 0.6545          
+         Neg Pred Value : 0.8400          
+             Prevalence : 0.3111          
+         Detection Rate : 0.2000          
+   Detection Prevalence : 0.3056          
+      Balanced Accuracy : 0.7448          
+                                          
+       'Positive' Class : 1          
+
+# removi "grossura_pele" (melhor desempenho)
+
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 104  18
+         1  20  38
+                                          
+               Accuracy : 0.7889          
+                 95% CI : (0.7219, 0.8461)
+    No Information Rate : 0.6889          
+    P-Value [Acc > NIR] : 0.001835        
+                                          
+                  Kappa : 0.5123          
+ Mcnemar's Test P-Value : 0.871131        
+                                          
+            Sensitivity : 0.6786          
+            Specificity : 0.8387          
+         Pos Pred Value : 0.6552          
+         Neg Pred Value : 0.8525          
+             Prevalence : 0.3111          
+         Detection Rate : 0.2111          
+   Detection Prevalence : 0.3222          
+      Balanced Accuracy : 0.7586          
+                                          
+       'Positive' Class : 1               
+                                     
+# nodesize de 5 até 50
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 106  19
+         1  18  37
+                                         
+               Accuracy : 0.7944         
+                 95% CI : (0.728, 0.8509)
+    No Information Rate : 0.6889         
+    P-Value [Acc > NIR] : 0.001038       
+                                         
+                  Kappa : 0.5181         
+ Mcnemar's Test P-Value : 1.000000       
+                                         
+            Sensitivity : 0.6607         
+            Specificity : 0.8548         
+         Pos Pred Value : 0.6727         
+         Neg Pred Value : 0.8480         
+             Prevalence : 0.3111         
+         Detection Rate : 0.2056         
+   Detection Prevalence : 0.3056         
+      Balanced Accuracy : 0.7578         
+                                         
+       'Positive' Class : 1    
+
+Area under the curve (AUC): 0.758   
+
+# ovun.sample(classe ~ ., data = data_select, method = "both",N = 650, seed = 1)$data
+Confusion Matrix and Statistics
+
+          Reference
+Prediction  0  1
+         0 94 11
+         1 13 78
+                                          
+               Accuracy : 0.8776          
+                 95% CI : (0.8233, 0.9199)
+    No Information Rate : 0.5459          
+    P-Value [Acc > NIR] : <2e-16          
+                                          
+                  Kappa : 0.7535          
+ Mcnemar's Test P-Value : 0.8383          
+                                          
+            Sensitivity : 0.8764          
+            Specificity : 0.8785          
+         Pos Pred Value : 0.8571          
+         Neg Pred Value : 0.8952          
+             Prevalence : 0.4541          
+         Detection Rate : 0.3980          
+   Detection Prevalence : 0.4643          
+      Balanced Accuracy : 0.8775          
+                                          
+       'Positive' Class : 1               
+                                          
+Area under the curve (AUC): 0.877
+
+# ovun.sample(classe ~ ., data = data_select, method = "both",N = 600, seed = 1)$data
+Confusion Matrix and Statistics
+
+          Reference
+Prediction  0  1
+         0 75 11
+         1 21 73
+                                          
+               Accuracy : 0.8222          
+                 95% CI : (0.7584, 0.8751)
+    No Information Rate : 0.5333          
+    P-Value [Acc > NIR] : 3.98e-16        
+                                          
+                  Kappa : 0.6455          
+ Mcnemar's Test P-Value : 0.1116          
+                                          
+            Sensitivity : 0.8690          
+            Specificity : 0.7812          
+         Pos Pred Value : 0.7766          
+         Neg Pred Value : 0.8721          
+             Prevalence : 0.4667          
+         Detection Rate : 0.4056          
+   Detection Prevalence : 0.5222          
+      Balanced Accuracy : 0.8251          
+                                          
+       'Positive' Class : 1   
+          
+Area under the curve (AUC): 0.825
+                                
