@@ -7,13 +7,6 @@ rm(list=ls())
 load("data/features_selection.RData")
 head(data_select)
 
-# library(ROSE)
-# #
-# # método de over e undersampling
-# balanced_target <- ovun.sample(classe ~ ., data = data_select, method = "both",N = 680, seed = 1)$data
-# data_select <- balanced_target
-
-
 library(beepr)
 library(mlr)
 
@@ -39,34 +32,38 @@ test_task <- normalizeFeatures(test_task, method = "standardize")
 # removendo features 
 # train_task <- dropFeatures(task = train_task,features = c("grossura_pele"))
 
-rf <- makeLearner("classif.randomForest", predict.type = "prob", par.vals = list(mtry = 3, ntree = 200, importance = TRUE))
-getParamSet("classif.randomForest")
+lda <- makeLearner("classif.lda", predict.type = "prob", method = "t", nu = 10)
+
+getParamSet("classif.lda")
 
 # gridsearch (parametros de tuning)
 parameters <- makeParamSet(
-  makeIntegerParam("ntree",lower = 50, upper = 500),
-  makeIntegerParam("mtry", lower = 2, upper = 8),
-  makeIntegerParam("nodesize", lower = 5, upper = 50)
+  makeNumericLearnerParam("nu", lower = 2, upper = 40)
 )
 
 control_tune <- makeTuneControlRandom(maxit = 100L)
+
 # cv
 cv <- makeResampleDesc("CV",iters = 10L)
 
-rf_tune <- tuneParams(learner = rf, resampling = cv, task = train_task, par.set = parameters, control = control_tune, show.info = TRUE)
+lda_tune <- tuneParams(learner = lda, resampling = cv, task = train_task, par.set = parameters, control = control_tune)
 
 # using hyperparameters
-rf_tuning <- setHyperPars(rf, par.vals = rf_tune$x)
+lda_tuning <- setHyperPars(lda, par.vals = lda_tune$x)
 
 # configurando os parâmetros de tuning 
-rf <- mlr::train(rf_tuning, train_task)
-getLearnerModel(rf)
+lda <- mlr::train(lda_tuning, train_task)
+getLearnerModel(lda)
 
 # passando o conjunto de teste para o modelo 
-predict_rf<-predict(rf, test_task)
-predict_rf
+predict_lda<-predict(lda, test_task)
+predict_lda
 
-df <- data.frame(predict_rf$data)
+df <- data.frame(predict_lda$data)
+head(df)
+
+## controlando o threshold
+table(ifelse(df$prob.1 > .4, 1, 0))
 
 # definindo a classe positiva como 1 (com diabetes)
 # avaliar os resultados
